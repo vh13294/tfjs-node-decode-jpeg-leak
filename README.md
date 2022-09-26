@@ -1,5 +1,7 @@
 # Minimal repo to show memory leak in decodeJpeg of tfjs-node module
 
+The code is running in 200ms interval to simulate image stream then the image is converted to tensor object via decodeJpeg.
+
 # To compile
 
 npm run build
