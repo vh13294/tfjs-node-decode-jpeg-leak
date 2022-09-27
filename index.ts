@@ -2,9 +2,9 @@ import * as tf from "@tensorflow/tfjs-node";
 import { readFile } from "fs/promises";
 
 async function start() {
-  setInterval(() => {
+  setInterval(async () => {
     console.time("frame");
-    loadImage();
+    await loadImage();
     console.timeEnd("frame");
   }, 200);
 }
@@ -14,6 +14,7 @@ async function loadImage() {
   console.log(file.buffer.byteLength);
   const tensor = tf.node.decodeJpeg(file);
   console.log(tensor.size);
+  tensor.dispose();
 }
 
 start();
